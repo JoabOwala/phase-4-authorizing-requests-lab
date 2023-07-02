@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   belongs_to :user
 
+  validates :is_member_only, inclusion: { in: [true, false] }
+
   def author
     user.username
   end
